@@ -36,10 +36,10 @@ if uploaded_files:
         elif file_ext == ".xlsx":
             df = pd.read_excel(file)
         else:
-            st.error(f"❌ Unsupported file type: {file_ext}")
+            st.error(f" Unsupported file type: {file_ext}")
             continue
 
-        st.success("✅ Data Added Successfully!")  
+        st.success(" Data Added Successfully!")  
 
         # Display file info
         st.write(f"**File Name:** {file.name}")
@@ -57,13 +57,13 @@ if uploaded_files:
             with col1:
                 if st.button(f"Remove Duplicates from {file.name}"):
                     df.drop_duplicates(inplace=True)
-                    st.write("✅ Duplicates removed!")
+                    st.write(" Duplicates removed!")
 
             with col2:
                 if st.button(f"Fill Missing Values for {file.name}"):
                     numeric_cols = df.select_dtypes(include=['number']).columns
                     df[numeric_cols] = df[numeric_cols].fillna(df[numeric_cols].mean())
-                    st.write("✅ Missing values filled!")
+                    st.write(" Missing values filled!")
 
         # Data Visualization (Fixed)
         st.subheader("📊 Data Visualization")
